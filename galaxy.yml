@@ -5,7 +5,7 @@
 
 namespace: "samccann"
 name: "validateme"
-version: 1.0.0
+version: 0.0.1
 readme: README.md
 authors:
   - Sandra McCann <samccann@redhat.com>
