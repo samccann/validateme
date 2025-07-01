@@ -10,37 +10,35 @@ from ansible_collections.samccann.validateme.plugins.modules.temperature import 
 
 """Unit tests for samccann.validateme.temperature."""
 
+
 class TestTemperature:
 
-# test that the temperature is converted correctly
+    # test that the temperature is converted correctly
     def test_convert_temperature(self):
         assert _temperature(0.0, 'celsius') == 32.0
         assert abs(_temperature(100.0, 'fahrenheit') - 37.78) < 0.01
 
-# test that module fails if the temp option is not provided
+    # test that module fails if the temp option is not provided
     def test_no_temp(self):
         with pytest.raises(TypeError):
             _temperature(None, 'celsius')
 
-# test that module fails if the temp is not a number
+    # test that module fails if the temp is not a number
     def test_invalid_temp(self):
         with pytest.raises(TypeError):
-            _temperature('X', 'celsius')  
+            _temperature('X', 'celsius')
 
-# test that module fails if the unit option is not provided
+    # test that module fails if the unit option is not provided
     def test_no_unit(self):
         with pytest.raises(TypeError):
             _temperature(100.0, None)
 
-# test that module fails if the unit is not a string
+    # test that module fails if the unit is not a string
     def test_invalid_unit_type(self):
         with pytest.raises(TypeError):
             _temperature(100.0, 1)
 
-# test that module fails if the unit is not a valid choice
+    # test that module fails if the unit is not a valid choice
     def test_invalid_unit(self):
         with pytest.raises(ValueError):
             _temperature(100.0, 'X')
-
-
- 
