@@ -1,21 +1,16 @@
 # temperature.py - A temperature module plugin for Ansible.
-# Author: Sam McCann (@samccann)
-# License: GPL-3.0-or-later
+# Copyright: (c) 2024, Sandra McCann (@samccann) <sammccann@redhat.com>
+# GNU General Public License v3.0+ (see COPYING or https://www.gnu.org/licenses/gpl-3.0.txt)
+
 
 from __future__ import absolute_import, annotations, division, print_function
 
 
 __metaclass__ = type  # pylint: disable=C0103
 
-from typing import TYPE_CHECKING
-
-
-if TYPE_CHECKING:
-    from typing import Callable
-
 
 DOCUMENTATION = """
-    name: temperature
+    module: temperature
     author: Sandra McCann (@samccann)
     version_added: "1.0.0"
     short_description: Convert tempurature to Fahrenheit or Celsius.
@@ -43,8 +38,8 @@ EXAMPLES = """
   samccann.validateme.temperature:
     temp: 79.5
     unit: fahrenheit
-
 """
+
 RETURN = """
 temp:
     description: The converted temperature.
@@ -54,6 +49,7 @@ temp:
 """
 
 from ansible.module_utils.basic import AnsibleModule
+
 
 def _temperature(temp: float, unit: str) -> float:
     """Converts the given temperature to the specified unit (Fahrenheit or Celsius).
@@ -66,9 +62,9 @@ def _temperature(temp: float, unit: str) -> float:
         float: The converted temperature.
     """
     if unit == "fahrenheit":
-        return (temp - 32) * 5/9
+        return (temp - 32) * 5 / 9
     elif unit == "celsius":
-        return (temp * 9/5) + 32
+        return (temp * 9 / 5) + 32
     else:
         raise ValueError(f"Invalid unit: {unit}")
 
@@ -88,7 +84,6 @@ def main():
         module.exit_json(changed=False, temp=result)
     except Exception as e:
         module.fail_json(msg=str(e))
-
 
 
 if __name__ == '__main__':  # pragma: no cover
