@@ -13,7 +13,7 @@ DOCUMENTATION = """
     module: temperature
     author: Sandra McCann (@samccann)
     version_added: "1.0.0"
-    short_description: Convert tempurature to Fahrenheit or Celsius.
+    short_description: Convert temperature to Fahrenheit or Celsius.
     description:
       - This module converts the given temperature from the specified unit (Fahrenheit or Celsius)
       - to the other unit.
@@ -61,6 +61,16 @@ def _temperature(temp: float, unit: str) -> float:
     Returns:
         float: The converted temperature.
     """
+
+    # Validate the inputs
+    if not isinstance(temp, float):
+        raise TypeError("temp must be a float")
+    if not isinstance(unit, str):
+        raise TypeError("unit must be a string")
+    if unit not in ["fahrenheit", "celsius"]:
+        raise ValueError(f"Invalid unit: {unit}")
+
+    # Convert the temperature
     if unit == "fahrenheit":
         return (temp - 32) * 5 / 9
     elif unit == "celsius":
