@@ -1,0 +1,13 @@
+ancestor: null
+releases:
+  0.0.1:
+    changes:
+      release_summary: "| Release Date: 2025-07-02
+
+        | `First release of the collection`"
+    fragments:
+      - 0.0.1_release-summary.yaml
+      - pr3-cifix.yaml
+      - pr5-unittests.yml
+      - pr6-lint.yml
+    release_date: "2025-07-02"
