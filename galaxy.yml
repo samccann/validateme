@@ -23,11 +23,28 @@ issues: https://github.com/samccann/validateme/issues
 # uses 'fnmatch' to match the files or directories. Some directories and files like 'galaxy.yml', '*.pyc', '*.retry',
 # and '.git' are always filtered. Mutually exclusive with 'manifest'
 build_ignore:
+  - changelogs
+  - changelogs/*
+  - .devcontainer/*
+  - .devcontainer
+  - galaxy_token
+  - .github/*
+  - .github
+  - .vscode/*
+  - .vscode
   - .gitignore
-  - changelogs/.plugin-cache.yaml
-# A dict controlling use of manifest directives used in building the collection artifact. The key 'directives' is a
-# list of MANIFEST.in style
-# L(directives,https://packaging.python.org/en/latest/guides/using-manifest-in/#manifest-in-commands). The key
-# 'omit_default_directives' is a boolean that controls whether the default directives are used. Mutually exclusive
-# with 'build_ignore'
-# manifest: null
+  - .pre-commit-config.yaml
+  - .pre-commit-hooks.yaml
+  - tmp/*
+  - tmp
+  - .venv/*
+  - .venv
+  - .tox/*
+  - .tox
+  - tox.ini
+  - .flake8
+  - .ansible-lint
+  - "*.pyc"
+  - __pycache__/*
+  - __pycache__
+  - .pytest_cache/*
