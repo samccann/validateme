@@ -1,0 +1,10 @@
+# .ansible-lint
+---
+# Exclude certain directories
+exclude_paths:
+  - .cache/
+  - .github/
+  - .tox/
+  - .venv/
+  - tmp/
+  - galaxy_cache/

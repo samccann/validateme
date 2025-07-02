@@ -1,0 +1,2 @@
+trivial:
+  - "Add linting and precommit hooks"

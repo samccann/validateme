@@ -1,6 +1,7 @@
 # temperature.py - A temperature module plugin for Ansible.
 # Copyright: (c) 2024, Sandra McCann (@samccann) <sammccann@redhat.com>
-# GNU General Public License v3.0+ (see COPYING or https://www.gnu.org/licenses/gpl-3.0.txt)
+# GNU General Public License v3.0+ (see COPYING or
+# https://www.gnu.org/licenses/gpl-3.0.txt)
 
 
 from __future__ import absolute_import, annotations, division, print_function
@@ -15,8 +16,8 @@ DOCUMENTATION = """
     version_added: "1.0.0"
     short_description: Convert temperature to Fahrenheit or Celsius.
     description:
-      - This module converts the given temperature from the specified unit (Fahrenheit or Celsius)
-      - to the other unit.
+      - This module converts the given temperature from the specified unit
+      - (Fahrenheit or Celsius)to the other unit.
     options:
       temp:
         description: The temperature to convert.
@@ -48,11 +49,12 @@ temp:
     sample: 26.39
 """
 
-from ansible.module_utils.basic import AnsibleModule
+from ansible.module_utils.basic import AnsibleModule  # noqa: E402
 
 
 def _temperature(temp: float, unit: str) -> float:
-    """Converts the given temperature to the specified unit (Fahrenheit or Celsius).
+    """Converts the given temperature to the specified unit
+    (Fahrenheit or Celsius).
 
     Args:
         temp: temperature to convert.
@@ -81,20 +83,23 @@ def _temperature(temp: float, unit: str) -> float:
 
 def main():
     argument_spec = dict(
-        temp=dict(type='float', required=True),
-        unit=dict(type='str', required=True, choices=['fahrenheit', 'celsius'])
-
+        temp=dict(type="float", required=True),
+        unit=dict(
+            type="str",
+            required=True,
+            choices=["fahrenheit", "celsius"],
+        ),
     )
 
     module = AnsibleModule(argument_spec=argument_spec)
     try:
-        temp = module.params['temp']
-        unit = module.params['unit']
+        temp = module.params["temp"]
+        unit = module.params["unit"]
         result = _temperature(temp, unit)
         module.exit_json(changed=False, temp=result)
     except Exception as e:
         module.fail_json(msg=str(e))
 
 
-if __name__ == '__main__':  # pragma: no cover
+if __name__ == "__main__":  # pragma: no cover
     main()  # pragma: no cover
