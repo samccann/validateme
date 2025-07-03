@@ -166,3 +166,4 @@ cython_debug/
 # Ansible
 .ansible/
 galaxy_cache/
+sample_ee/context/
