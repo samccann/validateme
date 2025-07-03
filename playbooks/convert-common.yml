@@ -1,0 +1,26 @@
+---
+- name: Convert common temperatures to the opposite units
+  hosts: all
+  # variables to hold the temperature values
+  vars:
+    celsius_boiling: 100
+    fahrenheit_freezing: 32
+
+  tasks:
+    - name: Convert Celsius to Fahrenheit
+      samccann.validateme.temperature:
+        temp: "{{ celsius_boiling }}"
+        unit: celsius
+      register: celsius_result
+
+    - name: Convert Fahrenheit to Celsius
+      samccann.validateme.temperature:
+        temp: "{{ fahrenheit_freezing }}"
+        unit: fahrenheit
+      register: fahrenheit_result
+
+    - name: Show the results
+      ansible.builtin.debug:
+        msg:
+          - "Celsius boiling point: {{ celsius_boiling }}°C = {{ celsius_result.temp }}°F"
+          - "Fahrenheit freezing point: {{ fahrenheit_freezing }}°F = {{ fahrenheit_result.temp }}°C"
