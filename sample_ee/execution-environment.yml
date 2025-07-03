@@ -13,4 +13,4 @@ dependencies:
     package_pip: ansible-runner
   galaxy:
     collections:
-    - name: samccann.validateme
+      - name: samccann.validateme
