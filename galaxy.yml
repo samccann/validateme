@@ -35,6 +35,8 @@ build_ignore:
   - .gitignore
   - .pre-commit-config.yaml
   - .pre-commit-hooks.yaml
+  - sample_ee
+  - sample_ee/*
   - tmp/*
   - tmp
   - .venv/*
