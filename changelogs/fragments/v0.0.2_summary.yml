@@ -1,0 +1,4 @@
+release_summary: |
+  | Release Date: 2025-07-07
+  | Adds sample playbook and execution environment.
+  | Release Notes: https://github.com/samccann/validateme/releases/tag/v0.0.2
