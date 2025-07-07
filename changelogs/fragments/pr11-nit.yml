@@ -1,0 +1,2 @@
+trivial:
+  - "don't use hosts:all in sample playbook."
