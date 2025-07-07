@@ -1,9 +1,5 @@
 objects:
-  role:
-    run:
-      description: Role description.
-      name: run
-      version_added: null
+  role: {}
 plugins:
   become: {}
   cache: {}
@@ -18,11 +14,11 @@ plugins:
     temperature:
       description: Convert temperature to Fahrenheit or Celsius.
       name: temperature
-      namespace: ""
+      namespace: ''
       version_added: 1.0.0
   netconf: {}
   shell: {}
   strategy: {}
   test: {}
   vars: {}
-version: 0.0.1
+version: 0.0.2
