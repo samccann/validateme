@@ -1,6 +1,6 @@
 ---
 - name: Convert common temperatures to the opposite units
-  hosts: all
+  hosts: localhost
   # variables to hold the temperature values
   vars:
     celsius_boiling: 100
