@@ -2,29 +2,29 @@ ancestor: null
 releases:
   0.0.1:
     changes:
-      release_summary: '| Release Date: 2025-07-02
+      release_summary: "| Release Date: 2025-07-02
 
-        | `First release of the collection`'
+        | `First release of the collection`"
     fragments:
-    - 0.0.1_release-summary.yaml
-    - pr3-cifix.yaml
-    - pr5-unittests.yml
-    - pr6-lint.yml
-    release_date: '2025-07-02'
+      - 0.0.1_release-summary.yaml
+      - pr3-cifix.yaml
+      - pr5-unittests.yml
+      - pr6-lint.yml
+    release_date: "2025-07-02"
   0.0.2:
     changes:
       minor_changes:
-      - Add a execution environment file.
-      - Add a sample playbook to the project.
-      release_summary: '| Release Date: 2025-07-07
+        - Add a execution environment file.
+        - Add a sample playbook to the project.
+      release_summary: "| Release Date: 2025-07-07
 
         | Adds sample playbook and execution environment.
 
         | Release Notes: https://github.com/samccann/validateme/releases/tag/v0.0.2
 
-        '
+        "
     fragments:
-    - pr10-ee.yml
-    - pr9-ply.yml
-    - v0.0.2_summary.yml
-    release_date: '2025-07-07'
+      - pr10-ee.yml
+      - pr9-ply.yml
+      - v0.0.2_summary.yml
+    release_date: "2025-07-07"

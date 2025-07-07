@@ -14,7 +14,7 @@ plugins:
     temperature:
       description: Convert temperature to Fahrenheit or Celsius.
       name: temperature
-      namespace: ''
+      namespace: ""
       version_added: 1.0.0
   netconf: {}
   shell: {}
