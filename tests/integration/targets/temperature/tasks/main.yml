@@ -1,0 +1,31 @@
+---
+- name: Test temperature module - Convert Celsius to Fahrenheit
+  samccann.validateme.temperature:
+    temp: 0.0
+    unit: celsius
+  register: celsius_to_fahrenheit
+
+- name: Verify Celsius to Fahrenheit conversion
+  ansible.builtin.assert:
+    that:
+      - celsius_to_fahrenheit.temp == 32.0
+    fail_msg: "Expected 0°C to convert to 32°F, got {{ celsius_to_fahrenheit.temp }}"
+
+- name: Test temperature module - Convert Fahrenheit to Celsius
+  samccann.validateme.temperature:
+    temp: 32.0
+    unit: fahrenheit
+  register: fahrenheit_to_celsius
+
+- name: Verify Fahrenheit to Celsius conversion
+  ansible.builtin.assert:
+    that:
+      - fahrenheit_to_celsius.temp == 0.0
+    fail_msg: "Expected 32°F to convert to 0°C, got {{ fahrenheit_to_celsius.temp }}"
+
+- name: Display test results summary
+  ansible.builtin.debug:
+    msg:
+      - "Temperature module integration tests completed successfully!"
+      - "0°C = {{ celsius_to_fahrenheit.temp }}°F"
+      - "32°F = {{ fahrenheit_to_celsius.temp }}°C"
